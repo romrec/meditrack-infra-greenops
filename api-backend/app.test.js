@@ -1,7 +1,7 @@
 ﻿const request = require('supertest');
 const app = require('./index');
 
-beforeAll(done => setTimeout(done, 1000));
+beforeAll(() => new Promise(resolve => setTimeout(resolve, 1000)));
 
 describe('MediTrack API', () => {
   test('GET / retourne 200', async () => {
