@@ -1,0 +1,34 @@
+[
+  {
+    "name": "meditrack-api",
+    "image": "730335232588.dkr.ecr.eu-west-3.amazonaws.com/meditrack-api:latest",
+    "portMappings": [
+      {
+        "containerPort": 3000,
+        "protocol": "tcp"
+      }
+    ],
+    "environment": [
+      {
+        "name": "DB_HOST",
+        "value": "meditrack-db.ch2wkq00gd3u.eu-west-3.rds.amazonaws.com"
+      },
+      {
+        "name": "DB_USER",
+        "value": "meditrackadmin"
+      },
+      {
+        "name": "DB_NAME",
+        "value": "postgres"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "value": "MotDePasseComplexe123!"
+      },
+      {
+        "name": "DB_PORT",
+        "value": "5432"
+      }
+    ]
+  }
+]

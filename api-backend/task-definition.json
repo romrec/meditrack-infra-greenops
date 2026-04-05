@@ -1,0 +1,53 @@
+{
+  "family": "meditrack-task",
+  "executionRoleArn": "arn:aws:iam::730335232588:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512",
+  "containerDefinitions": [
+    {
+      "name": "meditrack-api",
+      "image": "730335232588.dkr.ecr.eu-west-3.amazonaws.com/meditrack-api:latest",
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "DB_HOST",
+          "value": "meditrack-db.ch2wkq00gd3u.eu-west-3.rds.amazonaws.com"
+        },
+        {
+          "name": "DB_USER",
+          "value": "meditrackadmin"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "value": "MotDePasseComplexe123!"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "postgres"
+        },
+        {
+          "name": "DB_PORT",
+          "value": "5432"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/meditrack-task",
+          "awslogs-region": "eu-west-3",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
