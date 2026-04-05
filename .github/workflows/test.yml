@@ -3,8 +3,6 @@ name: Tests MediTrack API
 on:
   push:
     branches: [ develop ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   test:
@@ -33,13 +31,13 @@ jobs:
         with:
           node-version: 18
 
+      - name: Debug
+        working-directory: ./api-backend
+        run: cat app.test.js
+
       - name: Install dependencies
         working-directory: ./api-backend
         run: npm install
-
-      - name: Clear Jest cache
-        working-directory: ./api-backend
-        run: npx jest --clearCache
 
       - name: Run tests
         working-directory: ./api-backend
