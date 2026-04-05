@@ -4,7 +4,8 @@
   "description": "API de test pour MediTrack",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "jest --forceExit"
   },
   "dependencies": {
     "express": "^4.18.2",
