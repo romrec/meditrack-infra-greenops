@@ -12,9 +12,7 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT || 5432,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false
 });
 
 const initializeDatabase = async () => {
@@ -34,7 +32,7 @@ const initializeDatabase = async () => {
     client.release();
   } catch (err) {
     console.error("Erreur critique lors de l'initialisation BDD:", err.message);
-    process.exit(1); // Arrêt propre si la BDD est inaccessible
+    // process.exit(1); // Arrêt propre si la BDD est inaccessible
   }
 };
 
