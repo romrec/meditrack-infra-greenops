@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('./app');
+const app = require('./index');
 
 describe('MediTrack API', () => {
   test('GET / retourne 200', async () => {
