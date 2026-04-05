@@ -75,3 +75,5 @@ app.listen(PORT, () => {
     console.error("BDD inaccessible au démarrage:", err.message);
   });
 });
+
+if (require.main !== module) module.exports = app;
