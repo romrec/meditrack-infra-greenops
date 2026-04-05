@@ -37,6 +37,10 @@ jobs:
         working-directory: ./api-backend
         run: npm install
 
+      - name: Clear Jest cache
+        working-directory: ./api-backend
+        run: npx jest --clearCache
+
       - name: Run tests
         working-directory: ./api-backend
         env:
