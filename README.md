@@ -173,9 +173,6 @@ Invoke-RestMethod -Uri "http://meditrack-alb-788195322.eu-west-3.elb.amazonaws.c
 
 # POST /contact valide
 Invoke-RestMethod -Uri "http://meditrack-alb-788195322.eu-west-3.elb.amazonaws.com/contact" -Method POST -ContentType "application/json" -Body '{"nom":"Test","email":"test@example.com","message":"Hello MediTrack"}'
-
-# POST /contact sans nom (doit retourner 400)
-Invoke-RestMethod -Uri "http://meditrack-alb-788195322.eu-west-3.elb.amazonaws.com/contact" -Method POST -ContentType "application/json" -Body '{"email":"test@example.com"}'
 ```
 
 ## Sécurité
